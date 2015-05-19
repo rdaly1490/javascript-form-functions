@@ -142,15 +142,43 @@ function maze() {
 	return matrix;
 }
 
-function table(array) {
+function table(myObjects, year, make, model, color) {
 
-	for (var i = 0; i < array.length; i++) {
-		console.log(array[i]);
+	var obj =[];
+	var filterArray = [];
+
+	if (year !== "") {
+		filterArray.push(year);
+	}
+	if (make !== "") {
+		filterArray.push(make);
+	}
+	if (model !== "") {
+		filterArray.push(model);
+	}
+	if (color !== "") {
+		filterArray.push(color);
 	}
 
+	console.log(filterArray);
 
 
-
+	for (var i = 0; i < myObjects.length; i++) {
+		var counter = 0;
+		for (var props in myObjects[i]) {
+			for (var j= 0; j < filterArray.length; j++) {
+				if(myObjects[i][props] == filterArray[j]) {
+					counter++;
+				}
+				console.log(counter);
+			} 
+		}
+			if (counter === filterArray.length) {
+			obj.push(myObjects[i][props]);
+		}
+	}
+	console.log(obj);
+	return obj
 }
 
 
