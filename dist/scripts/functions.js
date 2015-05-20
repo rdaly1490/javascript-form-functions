@@ -122,8 +122,11 @@ function countLetters(string) {
         length = splitString.length;
     splitString = splitString.split('').reverse();
 
-    while (length--) letterCount[splitString[length]] = letterCount[splitString[length]] + 1 || 1;
+    while (length--) {
+    letterCount[splitString[length]] = letterCount[splitString[length]] + 1 || 1;
     return letterCount;
+	}
+
 }
 
 function maze() {
