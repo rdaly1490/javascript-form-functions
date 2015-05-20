@@ -172,9 +172,12 @@ function table(myObjects, year, make, model, color) {
 				}
 				console.log(counter);
 			} 
-		}
+
 			if (counter === filterArray.length) {
 			obj.push(myObjects[i][props]);
+		}
+			// if (counter === filterArray.length) {
+			// obj.push(myObjects[i][props]);
 		}
 	}
 	console.log(obj);
