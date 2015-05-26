@@ -117,15 +117,77 @@ function join(array, selector) {
 
 function countLetters(string) {
 
-	var splitString = string.replace(" ","")
-    var letterCount = {},
-        length = splitString.length;
-    splitString = splitString.split('').reverse();
+	// var splitString = string.replace(" ","")
+ //    var letterCount = {},
+ //        length = splitString.length;
+ //    splitString = splitString.split('').reverse();
 
-    while (length--) {
-    letterCount[splitString[length]] = letterCount[splitString[length]] + 1 || 1;
-    return letterCount;
+ //    while (length--) {
+ //    letterCount[splitString[length]] = letterCount[splitString[length]] + 1 || 1;
+ //    return letterCount;
+	// }
+
+
+
+//Use object because want to group together all a's and b's, etc.
+//will need a counter for each letter in input string
+//bunch of similar variables and doing a bunch of similar things to them usually use an object.
+//Use object over array when info is named, not numbered (i.e. indexes).
+
+//First, this is how to check for just a certain letter or character.
+//would need numX for every letter in alphabet and for loop for each.
+// var numAs = 0;
+
+// for (var i = 0; i < string.length; i++) {
+// 	if (string.charAt(i) === "a") {
+// 		numAs = numAs + 1;
+// 	}
+// 	return numAs
+// }
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Should do with objects for less code
+
+//Want to make object that goes over each letter and adds a letter to object if it encounters it and gives it inital value of 1.
+//If that letter is encountered again add 1 to that characters initial value.
+var letterCount = {};
+//iterate over each letter of the string
+for (var i = 0; i < string.length; i++) {
+//storing the charat(i) in a currentLetter variable
+	var currentLetter = string.charAt(i);
+	
+
+//If object has property of current letter already run as false and do else.  Otherwise set equal to 1 if hasn't been encountered yet.
+//Saying does this object exit already?  If so increment it's value by one.  Otherwise set equal to one.
+	if (!letterCount.hasOwnProperty(currentLetter)) {
+//"if letterCount doesn't have  aproperty called "C" then make one and set equal to 1
+		letterCount[currentLetter] = 1;
 	}
+	else {
+		letterCount[currentLetter]++;
+	}
+
+}
+//need to convert this object to  a string now.
+//declare an empty string
+var outputString = "";
+//use for in loop to iterate over object (have to use for in because object isn't ordered.  It basically says go visit every property in my object
+// 1 by 1 until none left).
+
+for (var propertyName in letterCount) {
+	//property name is c, lettercount is 1 (for cat)
+	var value = letterCount[propertyName];
+	console.log(propertyName, letterCount[propertyName]);
+	outputString = outputString + propertyName + ":" + value;
+}
+
+
+
+
+console.log(letterCount);
+return outputString;
+
 
 }
 
@@ -186,6 +248,28 @@ function table(myObjects, year, make, model, color) {
 	console.log(obj);
 	return obj
 }
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//More objects practice
+
+
+// var lookup = "author";
+// var book = {
+// 	isbn: "9834n394",
+// 	title: "Game of Thrones",
+// 	author: "George RR Martin",
+// 	datePublished: "May 12, 1996",
+// 	cover: ".."
+
+// }
+
+// console.log(book[lookup]);
+
+//for (var prop in book) {
+// 	console.log(book[prop]);
+// }
 
 
 
