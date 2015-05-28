@@ -1,0 +1,19 @@
+{
+  "name": "javascript-form-functions",
+  "version": "0.0.0",
+  "homepage": "https://github.com/rdaly1490/javascript-form-functions",
+  "authors": [
+    "Rob <rdaly1490@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "chai": "~2.3.0"
+  }
+}
